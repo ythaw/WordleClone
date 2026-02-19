@@ -1,73 +1,96 @@
-# React + TypeScript + Vite
+# 🟩 Wordle Clone – React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Wordle-style word guessing game built with React.  
+This project focuses on state management, game logic, async validation, and clean component architecture.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:**   
+📦 **GitHub Repo:** https://github.com/ythaw/WordleClone  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 6×5 interactive game board
+- On-screen and physical keyboard support
+- Tile evaluation logic:
+  - 🟩 Correct (green)
+  - 🟨 Present (yellow)
+  - ⬛ Absent (gray)
+- Duplicate letter handling (accurate Wordle-style logic)
+- Random non-repeating answers using `localStorage`
+- Word validation via Datamuse API
+- Win / Loss detection
+- Restart functionality
+- Toast-style error message for invalid words
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧠 Technical Highlights
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Managed complex nested state (2D arrays) immutably
+- Used functional state updates (`prev => ...`) to prevent stale state bugs
+- Implemented async validation inside controlled input flow
+- Designed scalable component hierarchy:
+  - `App`
+  - `Board`
+  - `Row`
+  - `Tile`
+  - `Keyboard`
+- Persisted answer rotation using `localStorage`
+- Prevented answer repetition until full word list cycle completes
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠 Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- React (Hooks)
+- JavaScript (ES6+)
+- CSS
+- Datamuse API
+- LocalStorage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📂 Project Structure
+src/
+├── components/
+│ ├── Board.jsx
+│ ├── Row.jsx
+│ ├── Tile.jsx
+│ ├── Keyboard.jsx
+│ └── Nav.jsx
+├── words/
+│ └── answers.js
+├── App.jsx
+└── App.css
+
+---
+
+## 🎯 What I Learned
+
+- How to safely update deeply nested state in React
+- How to structure game logic separately from UI components
+- Managing keyboard events and user input in React
+- Handling async API validation without breaking UX flow
+- Designing a scalable and reusable component architecture
+
+---
+
+## 📌 Future Improvements
+
+- Game statistics tracking (win rate, streaks)
+- Share results functionality
+- Difficulty mode (hard mode constraints)
+- Replace API validation with local dictionary for full offline support
+
+---
+
+## ▶️ Run Locally
+
+```bash
+npm install
+npm run dev
+
+💡 Project Goal
+
+This project was built to deepen my understanding of React state management, event handling, and asynchronous logic in a real-world interactive application.

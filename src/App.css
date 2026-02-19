@@ -1,13 +1,25 @@
+.nav{
+    font-size: x-large;
+    color: #828282;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px;
+    border-bottom: solid 1px;
+    border-color: #828282;
+    letter-spacing: 5px;
+}
 
 .tile{
     display: flex;
     width: 2em;
     height: 2em;
     border: solid 1px;
-    border-color: #999999;
+    border-color: #828282;
     align-items: center;
     justify-content: center;
 }
+
+
 .row{
     display: flex;
     gap: 6px;
@@ -24,26 +36,23 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* vertical center */
-    align-items: center;
 }
 .board{
     margin: 10px;
 }
 .board-div, .keyboard-div, .keyboard-row{
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 button{
     width: 40px;
-    height: 50px;
+    height: 60px;
     margin: 3px;
     font-size: 20px;
     align-items: center;
     border-radius: 3px;
     border: none;
-    background-color: #999999;
+    background-color: #828282;
     color: white;
 
 }
@@ -89,3 +98,69 @@ button{
   border-color: #3a3a3c;
   color: white;
 }
+
+.key.correct {
+  background: #6aaa64;
+  color: white;
+}
+
+.key.present {
+  background: #c9b458;
+  color: white;
+}
+
+.key.absent {
+  background: #3a3a3c;
+  color: white;
+}
+
+.key:focus {
+  outline: none;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(45, 45, 45, 0.6);
+  z-index: 40;
+}
+
+.popup {
+  background: #3d3d3ddb;
+  color: #f8fafc;
+  padding: 24px 28px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 260px;
+  box-shadow: 0 10px 30px rgba(62, 63, 68, 0.6);
+}
+
+.popup h2 { margin: 0 0 8px 0; font-size: 20px; }
+.popup .small { margin: 8px 0 16px 0; color: #d1d5db; }
+
+.restart {
+  background: #767a80ec;
+  border: none;
+  color: white;
+  width: 9em;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.restart:hover { filter: brightness(1.06); }
+
+.msgpopup{
+    background: #68686892;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 20px;
+    line-height: 2;
+}
+.message {
+    font-size: 14px;
+    color: white;
+}
+
